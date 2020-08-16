@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es6", "esnext", "es2015", "dom"],
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": "src",
+    "esModuleInterop": true,
+    "types": ["node", "jest"]
+  },
+  "include": ["src/**/*.*"],
+  "files": ["src/index.ts"],
+  "exclude": ["node_modules", "scripts"],
+  "typeRoots": ["./node_modules/@types", "./src/types"]
+}

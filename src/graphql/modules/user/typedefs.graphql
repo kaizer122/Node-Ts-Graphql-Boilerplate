@@ -1,0 +1,38 @@
+interface User {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  role: String!
+  profileImage: String
+}
+type Player implements User {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  role: String!
+  profileImage: String
+  mainPosition: String
+}
+
+type Admin implements User {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  role: String!
+  profileImage: String
+  permission: String
+}
+
+type Query {
+  me: User
+}
+
+type Mutation {
+  updateName(firstName: String!, lastName: String!): User
+}
+type Subscription {
+  playerProfileUpdated: User
+}
