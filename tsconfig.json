@@ -9,7 +9,7 @@
     "outDir": "./dist",
     "rootDir": "src",
     "esModuleInterop": true,
-    "types": ["node", "jest"]
+    "types": ["node"]
   },
   "include": ["src/**/*.*"],
   "files": ["src/index.ts"],

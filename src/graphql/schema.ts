@@ -4,8 +4,10 @@ import { makeExecutableSchema } from "apollo-server";
 import Debug from "debug";
 import createGraphQLLogger from "graphql-log";
 import path from "path";
-const SRC_DIR = path.resolve("src");
-const typesArray = loadFilesSync(path.join(SRC_DIR, "/graphql/modules"), { extensions: ["graphql"], recursive: true });
+const typesArray = loadFilesSync(path.join(__dirname, "./modules"), {
+  extensions: ["graphql"],
+  recursive: true,
+});
 
 const types = mergeTypeDefs(typesArray);
 const resolversArray = loadFilesSync(path.join(__dirname, "./modules/**/resolvers/**"), {

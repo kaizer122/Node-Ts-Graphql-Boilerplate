@@ -18,7 +18,7 @@ apolloServer.installSubscriptionHandlers(httpServer);
 
 const port = 3000;
 httpServer.listen(port, async () => {
-  console.log("server is running on: " + port);
+  console.log(" 🚀 Server is running on: " + port);
   console.log(process.env.NODE_ENV);
   // const fillDB = async num => {
   //   const models = [];
