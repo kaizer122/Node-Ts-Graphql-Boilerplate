@@ -27,7 +27,6 @@ export default {
           regionCode: pn.getRegionCode(),
         };
         const location = Object.values(input.location);
-        console.log(avatar);
         const user = new PlayerModel({
           ...input,
           _id,
@@ -39,6 +38,7 @@ export default {
         return user
           .save()
           .then(() => {
+            // TODO: Send email
             return sign({ id: user.id, role: ROLES.PLAYER }, process.env.JWT_SECRET, { expiresIn: "1y" });
           })
           .catch((err) => getMongooseError(err));

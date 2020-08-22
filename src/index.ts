@@ -1,8 +1,11 @@
+import cors from "cors";
 import express from "express";
 import http from "http";
 import moment from "moment-timezone";
 import Mongoose from "mongoose";
+import path from "path";
 import apolloServer from "./graphql/apolloServer";
+
 moment.tz.setDefault("Europe/Paris");
 Mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}`, {
   useNewUrlParser: true,
@@ -12,6 +15,10 @@ Mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}`, {
 });
 
 const app = express();
+app.use(cors());
+app.use(express.json());
+app.use("/public", express.static(path.join(__dirname, "../public")));
+
 apolloServer.applyMiddleware({ app });
 
 const httpServer = http.createServer(app);

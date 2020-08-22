@@ -1,21 +1,29 @@
 import bcrypt from "bcrypt";
 import { sign } from "jsonwebtoken";
-import { UserModel } from "../../../../models";
+import { AdminModel, PlayerModel } from "../../../../models";
 import { IMutationLoginArgs } from "../../../../types/graphTypes";
 import UserError from "../../../utils/userError";
+import errorsMessages from "../errorMessages.e";
 
 export default {
   Mutation: {
-    async login(_, { email, password }: IMutationLoginArgs) {
-      const user = await UserModel.findOne({ email: email });
-      if (!user) {
-        return new UserError("No user with that email");
-      }
+    async loginPlayer(_, { email, password }: IMutationLoginArgs) {
+      const user = await PlayerModel.findOne({ email: email.toLowerCase() });
+      if (!user) return new UserError(errorsMessages.invalidCredentials);
 
       const valid = await bcrypt.compare(password, user.password);
-      if (!valid) {
-        return new UserError("Incorrect log in details");
-      }
+      if (!valid) return new UserError(errorsMessages.invalidCredentials);
+      if (user.accountStatus === "SUSPENDED") return new UserError(errorsMessages.suspendedAccount);
+      // TODO: handle account deleted / inactive
+      return sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1y" });
+    },
+    async loginAdmin(_, { email, password }: IMutationLoginArgs) {
+      const user = await AdminModel.findOne({ email: email.toLowerCase() });
+      if (!user) return new UserError(errorsMessages.invalidCredentials);
+      const valid = await bcrypt.compare(password, user.password);
+      if (!valid) return new UserError(errorsMessages.invalidCredentials);
+      if (user.accountStatus === "SUSPENDED") return new UserError(errorsMessages.suspendedAccount);
+      // TODO: handle account deleted / inactive
       return sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1y" });
     },
   },

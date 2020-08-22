@@ -53,14 +53,10 @@ export const generateImageWithSize = ({ originalPath, id, width, height }): Prom
   new Promise((resolve, reject) => {
     const ext = originalPath.split(".").pop();
     const newPath = `${originalPath.substring(0, originalPath.lastIndexOf("/"))}/${id}_${width}x${height}.${ext}`;
-    try {
-      return sharp(originalPath)
-        .resize(width, height, { fit: "outside" })
-        .toFile(newPath, (err, inf) => {
-          if (err) return reject(err);
-          else return resolve(newPath);
-        });
-    } catch (e) {
-      return reject(e);
-    }
+    return sharp(originalPath)
+      .resize(width, height, { fit: "outside" })
+      .toFile(newPath, (err) => {
+        if (err) return reject(err);
+        else return resolve(newPath);
+      });
   });

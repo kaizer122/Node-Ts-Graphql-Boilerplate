@@ -41,7 +41,7 @@ const signupSchema = () => {
         lat: number().required(invalidLocation),
         lng: number().required(invalidLocation),
       })
-      .required(),
+      .required(invalidLocation),
   });
 };
 

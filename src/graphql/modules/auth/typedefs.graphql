@@ -4,20 +4,21 @@ input LocationInput {
 }
 
 input signupInput {
-  firstName: String
-  lastName: String
-  mainPosition: String
-  email: String
-  mobile: String
-  password: String
-  country: String
-  city: String
-  address: String
-  location: LocationInput
-  avatar: Upload
+  firstName: String!
+  lastName: String!
+  mainPosition: String!
+  email: String!
+  mobile: String!
+  password: String!
+  country: String!
+  city: String!
+  address: String!
+  location: LocationInput!
+  avatar: Upload!
 }
 
 type Mutation {
-  login(email: String!, password: String!): String
-  signup(input: signupInput!): String
+  loginPlayer(email: String!, password: String!): String!
+  loginAdmin(email: String!, password: String!): String!
+  signup(input: signupInput!): String!
 }
