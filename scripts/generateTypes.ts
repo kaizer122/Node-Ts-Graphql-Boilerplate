@@ -9,7 +9,7 @@ import path from "path";
 const outputFile = "../src/types/graphTypes.ts";
 
 const getSchema = () => {
-  const typesArray = loadFilesSync(path.join(__dirname, "../src/graphql/modules"), {
+  const typesArray = loadFilesSync(path.join(__dirname, "../src/graphql"), {
     extensions: ["graphql"],
     recursive: true,
   });

@@ -1,4 +1,23 @@
+input LocationInput {
+  lat: Float!
+  lng: Float!
+}
+
+input signupInput {
+  firstName: String
+  lastName: String
+  mainPosition: String
+  email: String
+  mobile: String
+  password: String
+  country: String
+  city: String
+  address: String
+  location: LocationInput
+  avatar: Upload
+}
+
 type Mutation {
   login(email: String!, password: String!): String
-  signup(firstName: String!, lastName: String!, mainPosition: String!, email: String!, password: String!): String
+  signup(input: signupInput!): String
 }

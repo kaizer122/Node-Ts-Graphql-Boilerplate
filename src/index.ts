@@ -1,8 +1,9 @@
 import express from "express";
 import http from "http";
+import moment from "moment-timezone";
 import Mongoose from "mongoose";
 import apolloServer from "./graphql/apolloServer";
-
+moment.tz.setDefault("Europe/Paris");
 Mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -1,0 +1,8 @@
+scalar Upload
+
+enum Role {
+  ADMIN
+  PLAYER
+}
+
+directive @auth(roles: [Role] = ADMIN) on QUERY | FIELD | FIELD_DEFINITION

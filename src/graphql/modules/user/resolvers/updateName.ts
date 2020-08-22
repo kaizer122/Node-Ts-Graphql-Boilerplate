@@ -1,8 +1,8 @@
-import { PlayerModel } from "../../../../models/userModel";
-import UserError from "../../../utils/userError";
-import { pubSub, PLAYER_PROFILE_UPDATED } from "../../../utils/pubsubs";
 import { withFilter } from "apollo-server";
+import { PlayerModel } from "../../../../models";
 import { IMutationUpdateNameArgs, IUser } from "../../../../types/graphTypes";
+import { PLAYER_PROFILE_UPDATED, pubSub } from "../../../utils/pubsubs";
+import UserError from "../../../utils/userError";
 
 export default {
   Mutation: {

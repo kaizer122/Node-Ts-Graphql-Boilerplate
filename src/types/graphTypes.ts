@@ -7,6 +7,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  Upload: any;
 };
 
 export type IAdmin = IUser & {
@@ -18,6 +19,11 @@ export type IAdmin = IUser & {
   role: Scalars["String"];
   profileImage?: Maybe<Scalars["String"]>;
   permission?: Maybe<Scalars["String"]>;
+};
+
+export type ILocationInput = {
+  lat: Scalars["Float"];
+  lng: Scalars["Float"];
 };
 
 export type IMutation = {
@@ -33,11 +39,7 @@ export type IMutationLoginArgs = {
 };
 
 export type IMutationSignupArgs = {
-  firstName: Scalars["String"];
-  lastName: Scalars["String"];
-  mainPosition: Scalars["String"];
-  email: Scalars["String"];
-  password: Scalars["String"];
+  input: ISignupInput;
 };
 
 export type IMutationUpdateNameArgs = {
@@ -59,6 +61,25 @@ export type IPlayer = IUser & {
 export type IQuery = {
   __typename?: "Query";
   me?: Maybe<IUser>;
+};
+
+export enum IRole {
+  Admin = "ADMIN",
+  Player = "PLAYER",
+}
+
+export type ISignupInput = {
+  firstName: Scalars["String"];
+  lastName: Scalars["String"];
+  mainPosition: Scalars["String"];
+  email: Scalars["String"];
+  mobile: Scalars["String"];
+  password: Scalars["String"];
+  country?: Maybe<Scalars["String"]>;
+  city: Scalars["String"];
+  address: Scalars["String"];
+  location: ILocationInput;
+  avatar?: Maybe<Scalars["Upload"]>;
 };
 
 export type ISubscription = {

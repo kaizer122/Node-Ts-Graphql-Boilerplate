@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
 import { sign } from "jsonwebtoken";
-import { UserModel } from "../../../../models/userModel";
-import UserError from "../../../utils/userError";
+import { UserModel } from "../../../../models";
 import { IMutationLoginArgs } from "../../../../types/graphTypes";
+import UserError from "../../../utils/userError";
 
 export default {
   Mutation: {

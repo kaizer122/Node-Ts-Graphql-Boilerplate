@@ -4,3 +4,12 @@ export const ROLES = {
   PLAYER: "PLAYER",
   ADMIN: "ADMIN",
 };
+
+export const ACCOUNT_STATUS = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+  SUSPENDED: "SUSPENDED",
+  DELETED: "DELETED",
+};
+export const DEFAULT_COUNTRY = "France";
+export const DEFAULT_CITY = "Paris";

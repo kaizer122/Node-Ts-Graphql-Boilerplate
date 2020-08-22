@@ -1,7 +1,7 @@
 import Debug from "debug";
-import { IsUserError } from "./userError";
-import type { GraphQLError } from "graphql";
 import { Request } from "express";
+import type { GraphQLError } from "graphql";
+import { IsUserError } from "./userError";
 const debug = Debug("graphql:error");
 const userDebug = Debug("graphql:user:error");
 const queryRe = /\s*(query|mutation)[^{]*/;

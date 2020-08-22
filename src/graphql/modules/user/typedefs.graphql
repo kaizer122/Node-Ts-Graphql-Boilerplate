@@ -31,7 +31,7 @@ type Query {
 }
 
 type Mutation {
-  updateName(firstName: String!, lastName: String!): User
+  updateName(firstName: String!, lastName: String!): User @auth(roles: PLAYER)
 }
 type Subscription {
   playerProfileUpdated: User
