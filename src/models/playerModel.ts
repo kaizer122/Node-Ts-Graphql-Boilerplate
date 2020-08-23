@@ -1,4 +1,5 @@
 import { Schema } from "mongoose";
+import mongooseLeanVirtuals from "mongoose-lean-virtuals";
 import { IPlayerModel } from "../types/modelTypes";
 import { ROLES } from "../utils/constants";
 import { UserModel } from "./userModel";
@@ -20,4 +21,5 @@ const PlayerSchema = new Schema(
   },
   { discriminatorKey: "role" },
 );
+PlayerSchema.plugin(mongooseLeanVirtuals);
 export const PlayerModel = UserModel.discriminator<IPlayerModel>(ROLES.PLAYER, PlayerSchema);

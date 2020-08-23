@@ -9,7 +9,7 @@ import { ROLES } from "../../../../utils/constants";
 import { getMongooseError } from "../../../../utils/getMongooseError";
 import { generateImageWithSize, uploadFile } from "../../../../utils/uploadUtils";
 import validateSchema from "../../../utils/yupValidate";
-import signupSchema from "../validations/signup.v";
+import signupSchema from "../validations/signup";
 
 export default {
   Mutation: {

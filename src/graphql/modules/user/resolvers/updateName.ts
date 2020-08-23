@@ -8,16 +8,17 @@ export default {
   Mutation: {
     async updateName(_, { firstName, lastName }: IMutationUpdateNameArgs, { user }) {
       if (!user) {
-        throw new UserError("You are not authenticated!");
+        return new UserError("You are not authenticated!");
       }
-      const userModel = await PlayerModel.findById(user.id);
-      userModel.firstName = firstName;
-      userModel.lastName = lastName;
-      const updatedUser = await userModel.save();
-      pubSub.publish(PLAYER_PROFILE_UPDATED, {
-        playerProfileUpdated: updatedUser,
-      });
-      return updatedUser;
+      // const userModel = await PlayerModel.findById(user.id);
+      // userModel.firstName = firstName;
+      // userModel.lastName = lastName;
+      // const updatedUser = await userModel.save();
+      // pubSub.publish(PLAYER_PROFILE_UPDATED, {
+      //   playerProfileUpdated: updatedUser,
+      // });
+      // return updatedUser;
+      return new UserError("Not yet implemented");
     },
   },
   Subscription: {

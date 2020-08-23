@@ -12,7 +12,6 @@ const typesArray = loadFilesSync(path.join(__dirname, "./"), {
 const types = mergeTypeDefs(typesArray);
 const resolversArray = loadFilesSync(path.join(__dirname, "./modules/**/resolvers/**"), {
   extensions: ["ts", "js"],
-  ignoredExtensions: [".d.ts", ".e.ts", ".e.js", ".d.js"],
   recursive: true,
 });
 const resolvers = mergeResolvers(resolversArray);

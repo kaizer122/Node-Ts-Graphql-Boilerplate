@@ -12,6 +12,8 @@ function makeModule(name) {
   if (fs.existsSync(dirPath)) return console.log("directory already exists.");
   fs.mkdirSync(dirPath);
   fs.mkdirSync(dirPath + "/resolvers");
+  fs.mkdirSync(dirPath + "/validations");
+  fs.writeFileSync(dirPath + "/errorMessages.ts", "");
   fs.writeFileSync(
     dirPath + "/typedefs.graphql",
     `

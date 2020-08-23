@@ -100,7 +100,7 @@ export const wrapper = (body) => `
               <!-- START MAIN CONTENT AREA -->
               <tr>
                 <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; ">
-                <a href="#">  <img src="https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-football-colorful-game-poster-banner-background-image_194132.jpg" width="100%" border="0" style="border:0; outline:none; text-decoration:none; display:block; margin-bottom: auto;" />
+                <a href="#">  <img src="" width="100%" border="0" style="border:0; outline:none; text-decoration:none; display:block; margin-bottom: auto;" />
                 </a>
                 <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; padding: 20px;">
                     <tr>
@@ -111,13 +111,13 @@ export const wrapper = (body) => `
                       Nous vous remercions pour votre confiance.
                       </p>
                       <p style="font-family: sans-serif; font-size: 14px; font-weight: bold; font-style: italic; margin: 0; margin-top:5px; color: black;">
-                      L'équipe Street Boss
+                      L'équipe Street Boss,
                       </p>
                       </td>
                     </tr>
                   </table>
                   <a href="#"> 
-                  <img src="https://previews.123rf.com/images/matsiash/matsiash1008/matsiash100800021/7598053-vector-football-banner-.jpg" width="100%" border="0" style="border:0; outline:none; text-decoration:none; display:block; margin-top: auto" />  
+                  <img src="" width="100%" border="0" style="border:0; outline:none; text-decoration:none; display:block; margin-top: auto" />  
                   </a>
                   </td>
               </tr>

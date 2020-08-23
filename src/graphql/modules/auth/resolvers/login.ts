@@ -1,13 +1,13 @@
 import bcrypt from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { AdminModel, PlayerModel } from "../../../../models";
-import { IMutationLoginArgs } from "../../../../types/graphTypes";
+import { IMutationLoginAdminArgs, IMutationLoginPlayerArgs } from "../../../../types/graphTypes";
 import UserError from "../../../utils/userError";
-import errorMessages from "../errorMessages.e";
+import errorMessages from "../errorMessages";
 
 export default {
   Mutation: {
-    async loginPlayer(_, { email, password }: IMutationLoginArgs) {
+    async loginPlayer(_, { email, password }: IMutationLoginPlayerArgs) {
       const user = await PlayerModel.findOne({ email: email.toLowerCase() });
       if (!user) return new UserError(errorMessages.invalidCredentials);
 
@@ -17,7 +17,7 @@ export default {
       // TODO: handle account deleted / inactive
       return sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1y" });
     },
-    async loginAdmin(_, { email, password }: IMutationLoginArgs) {
+    async loginAdmin(_, { email, password }: IMutationLoginAdminArgs) {
       const user = await AdminModel.findOne({ email: email.toLowerCase() });
       if (!user) return new UserError(errorMessages.invalidCredentials);
       const valid = await bcrypt.compare(password, user.password);

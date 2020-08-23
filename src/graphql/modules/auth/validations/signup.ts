@@ -1,7 +1,7 @@
 import PhoneNumber from "awesome-phonenumber";
 import { validate as validateEmail } from "email-validator";
 import { mixed, number, object, string } from "yup";
-import errorMessages from "../errorMessages.e";
+import errorMessages from "../errorMessages";
 const signupSchema = () => {
   const {
     fieldRequired,

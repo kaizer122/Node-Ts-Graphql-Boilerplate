@@ -28,18 +28,42 @@ export type ILocationInput = {
 
 export type IMutation = {
   __typename?: "Mutation";
-  login?: Maybe<Scalars["String"]>;
-  signup?: Maybe<Scalars["String"]>;
+  loginPlayer: Scalars["String"];
+  loginAdmin: Scalars["String"];
+  signup: Scalars["String"];
+  sendResetCode: IResetCodeResponse;
+  checkResetCode: Scalars["String"];
+  resetPassword: Scalars["Boolean"];
   updateName?: Maybe<IUser>;
 };
 
-export type IMutationLoginArgs = {
+export type IMutationLoginPlayerArgs = {
+  email: Scalars["String"];
+  password: Scalars["String"];
+};
+
+export type IMutationLoginAdminArgs = {
   email: Scalars["String"];
   password: Scalars["String"];
 };
 
 export type IMutationSignupArgs = {
   input: ISignupInput;
+};
+
+export type IMutationSendResetCodeArgs = {
+  email: Scalars["String"];
+};
+
+export type IMutationCheckResetCodeArgs = {
+  email: Scalars["String"];
+  code: Scalars["String"];
+};
+
+export type IMutationResetPasswordArgs = {
+  email: Scalars["String"];
+  password: Scalars["String"];
+  token: Scalars["String"];
 };
 
 export type IMutationUpdateNameArgs = {
@@ -63,6 +87,14 @@ export type IQuery = {
   me?: Maybe<IUser>;
 };
 
+export type IResetCodeResponse = {
+  __typename?: "resetCodeResponse";
+  firstName: Scalars["String"];
+  lastName: Scalars["String"];
+  avatar?: Maybe<Scalars["String"]>;
+  email: Scalars["String"];
+};
+
 export enum IRole {
   Admin = "ADMIN",
   Player = "PLAYER",
@@ -79,7 +111,7 @@ export type ISignupInput = {
   city: Scalars["String"];
   address: Scalars["String"];
   location: ILocationInput;
-  avatar?: Maybe<Scalars["Upload"]>;
+  avatar: Scalars["Upload"];
 };
 
 export type ISubscription = {

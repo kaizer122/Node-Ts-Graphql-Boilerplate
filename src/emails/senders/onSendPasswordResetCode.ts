@@ -18,7 +18,7 @@ const onSendResetCodeTemplate = ({ fullName, code }: { fullName: string; code: s
     <br/>
     <p ${getParagraphStyle()}>  Votre code de réinitialisation : <b>${code}</b>
     <br/>
-    Vous pourrez ainsi bénéficier à nouveau des services Street Boss.
+    <p ${getParagraphStyle()}> Vous pourrez ainsi bénéficier à nouveau des services Street Boss. </p>
     </p> 
   </div>
 `;

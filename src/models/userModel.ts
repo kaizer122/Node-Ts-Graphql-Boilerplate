@@ -1,6 +1,5 @@
 import moment from "moment-timezone";
 import { model, Schema } from "mongoose";
-import mongooseLeanVirtuals from "mongoose-lean-virtuals";
 import { IAdminModel, IPlayerModel } from "../types/modelTypes";
 import { ACCOUNT_STATUS, DEFAULT_CITY, DEFAULT_COUNTRY, EMAIL_REGEX, ROLES } from "../utils/constants";
 import { capitalize } from "../utils/functions";
@@ -143,7 +142,6 @@ const UserSchema = new Schema(
   },
 );
 UserSchema.index({ location: "2dsphere" });
-UserSchema.plugin(mongooseLeanVirtuals);
 UserSchema.virtual("fullName").get(function () {
   return this.firstName + " " + this.lastName;
 });

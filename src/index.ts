@@ -29,21 +29,4 @@ const port = process.env.SERVER_PORT;
 httpServer.listen(port, async () => {
   console.log(" 🚀 Server is running on: " + port);
   console.log(process.env.NODE_ENV);
-  // const fillDB = async num => {
-  //   const models = [];
-  //   for (let i = 0; i < num; i += 1) {
-  //     const password = faker.internet.password();
-  //     const user = new UserModel({
-  //       username: faker.internet.userName(),
-  //       email: faker.internet.email(),
-  //       password: await bcrypt.hash(password, 10)
-  //     });
-  //     await user.save();
-  //     user.password = password;
-  //     models.push(user);
-  //   }
-  //   return models;
-  // };
-
-  // await fillDB(100);
 });

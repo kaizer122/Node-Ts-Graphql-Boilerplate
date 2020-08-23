@@ -27,7 +27,7 @@ type Admin implements User {
 }
 
 type Query {
-  me: User
+  me: User @auth(roles: [PLAYER, ADMIN])
 }
 
 type Mutation {
