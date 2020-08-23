@@ -1,4 +1,5 @@
-const errorsMessages = {
+const errorMessages = {
+  emailNotRegistered: "Aucun compte enregistré avec cet email.",
   invalidCredentials: "Combinaison e-mail et mot de passe invalide.",
   suspendedAccount: "Votre compte a été suspendu, veuillez consulter votre e-mail pour plus de détails.",
   fieldRequired: (fieldName) => `${fieldName} est un champ requis.`,
@@ -9,4 +10,4 @@ const errorsMessages = {
   passwordTooLong: "Votre mot de passe est trop long.",
   avatarRequired: "Veuillez joindre une photo de profile.",
 };
-export default errorsMessages;
+export default errorMessages;

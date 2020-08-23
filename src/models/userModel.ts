@@ -144,5 +144,8 @@ const UserSchema = new Schema(
 );
 UserSchema.index({ location: "2dsphere" });
 UserSchema.plugin(mongooseLeanVirtuals);
+UserSchema.virtual("fullName").get(function () {
+  return this.firstName + " " + this.lastName;
+});
 
 export const UserModel = model<IPlayerModel | IAdminModel>("users", UserSchema);

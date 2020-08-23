@@ -5,6 +5,14 @@ import { UserModel } from "./userModel";
 
 const PlayerSchema = new Schema(
   {
+    emailVerified: {
+      type: Boolean,
+      default: false,
+    },
+    mobileVerified: {
+      type: Boolean,
+      default: false,
+    },
     mainPosition: {
       type: String,
       default: "attaquant",

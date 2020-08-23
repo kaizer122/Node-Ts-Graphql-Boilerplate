@@ -2,6 +2,7 @@ import PhoneNumber from "awesome-phonenumber";
 import bcrypt from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { Types } from "mongoose";
+import sendSignupEmail from "../../../../emails/senders/onSignup";
 import { PlayerModel } from "../../../../models";
 import { IMutationSignupArgs, ISignupInput } from "../../../../types/graphTypes";
 import { ROLES } from "../../../../utils/constants";
@@ -37,9 +38,10 @@ export default {
         });
         return user
           .save()
-          .then(() => {
-            // TODO: Send email
-            return sign({ id: user.id, role: ROLES.PLAYER }, process.env.JWT_SECRET, { expiresIn: "1y" });
+          .then((savedUser) => {
+            const token = sign({ id: user.id, role: ROLES.PLAYER }, process.env.JWT_SECRET, { expiresIn: "1y" });
+            sendSignupEmail({ fullName: savedUser.fullName, to: savedUser.email, token });
+            return token;
           })
           .catch((err) => getMongooseError(err));
       } catch (e) {
@@ -48,6 +50,7 @@ export default {
     },
   },
 };
+
 const getAvatar = (input: ISignupInput, _id) =>
   new Promise(async (resolve, reject) => {
     try {

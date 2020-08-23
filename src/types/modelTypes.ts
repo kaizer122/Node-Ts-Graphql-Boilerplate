@@ -17,6 +17,7 @@ export interface IUserModel extends Document {
   email: string;
   firstName: string;
   lastName: string;
+  fullName: string;
   password: string;
   profileImage: string;
   mobile: mobile;
@@ -38,6 +39,8 @@ export interface IUserModel extends Document {
 
 export interface IPlayerModel extends IUserModel {
   mainPosition: string;
+  emailVerified: boolean;
+  mobileVerified: boolean;
 }
 export interface IAdminModel extends IUserModel {
   permission: string;

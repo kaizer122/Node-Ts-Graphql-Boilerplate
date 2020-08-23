@@ -1,7 +1,7 @@
 import PhoneNumber from "awesome-phonenumber";
 import { validate as validateEmail } from "email-validator";
 import { mixed, number, object, string } from "yup";
-import errorsMessages from "../errorMessages.e";
+import errorMessages from "../errorMessages.e";
 const signupSchema = () => {
   const {
     fieldRequired,
@@ -11,7 +11,7 @@ const signupSchema = () => {
     passwordTooLong,
     avatarRequired,
     invalidLocation,
-  } = errorsMessages;
+  } = errorMessages;
   return object().shape({
     firstName: string().required(fieldRequired("Le prénom")),
     lastName: string().required(fieldRequired("Le nom")),

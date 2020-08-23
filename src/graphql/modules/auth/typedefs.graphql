@@ -10,15 +10,25 @@ input signupInput {
   email: String!
   mobile: String!
   password: String!
-  country: String!
+  country: String
   city: String!
   address: String!
   location: LocationInput!
   avatar: Upload!
 }
 
+type resetCodeResponse {
+  firstName: String!
+  lastName: String!
+  avatar: String
+  email: String!
+}
+
 type Mutation {
   loginPlayer(email: String!, password: String!): String!
   loginAdmin(email: String!, password: String!): String!
   signup(input: signupInput!): String!
+  sendResetCode(email: String!): resetCodeResponse!
+  checkResetCode(email: String!, code: String!): String!
+  resetPassword(email: String!, password: String!, token: String!): Boolean!
 }
